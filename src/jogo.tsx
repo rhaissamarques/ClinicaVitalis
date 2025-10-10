@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState } from 'react';
-import backgroundImg from './assets/background.jpg';
+import backgroundImg from './assets/background.png';
 import mascoteImg from './assets/mascote.png';
 import pipeTopImg from './assets/pipe-top.png';
 import pipeBottomImg from './assets/pipe-bottom.png';
@@ -113,17 +113,17 @@ export default function FlappyGame() {
         const validBottom = this.bottomImg && this.bottomImg.complete && this.bottomImg.naturalWidth > 0;
         
         if (validTop && validBottom) {
-          ctx.drawImage(this.topImg!, this.x, this.topY, this.width, 320);
-          ctx.drawImage(this.bottomImg!, this.x, this.bottomY, this.width, 320);
+          ctx.drawImage(this.topImg!, this.x, this.topY, this.width, 390);
+          ctx.drawImage(this.bottomImg!, this.x, this.bottomY, this.width, 390);
         } else {
           // Fallback: desenha retângulos verdes
           ctx.fillStyle = '#228B22';
-          ctx.fillRect(this.x, this.topY, this.width, 320);
-          ctx.fillRect(this.x, this.bottomY, this.width, 320);
+          ctx.fillRect(this.x, this.topY, this.width, 390);
+          ctx.fillRect(this.x, this.bottomY, this.width, 390);
           ctx.strokeStyle = '#006400';
           ctx.lineWidth = 3;
-          ctx.strokeRect(this.x, this.topY, this.width, 320);
-          ctx.strokeRect(this.x, this.bottomY, this.width, 320);
+          ctx.strokeRect(this.x, this.topY, this.width, 390);
+          ctx.strokeRect(this.x, this.bottomY, this.width, 390);
         }
       }
       hits(bird: Bird) {
@@ -152,16 +152,6 @@ export default function FlappyGame() {
         this.x2 -= PIPE_SPEED;
         if (this.x1 + this.width < 0) this.x1 = this.x2 + this.width;
         if (this.x2 + this.width < 0) this.x2 = this.x1 + this.width;
-      }
-      draw(ctx: CanvasRenderingContext2D) {
-        ctx.fillStyle = '#DEB887';
-        ctx.fillRect(this.x1, this.y, this.width, GROUND_HEIGHT);
-        ctx.fillRect(this.x2, this.y, this.width, GROUND_HEIGHT);
-        ctx.fillStyle = '#228B22';
-        for (let i = 0; i < 20; i++) {
-          ctx.fillRect(this.x1 + i * 25, this.y, 15, 8);
-          ctx.fillRect(this.x2 + i * 25, this.y, 15, 8);
-        }
       }
     }
 
@@ -203,7 +193,7 @@ export default function FlappyGame() {
     ).then(() => {
       bgImage = images['background'];
       bird = new Bird(100, 350, images['mascote']);
-      pipes = [new Pipe(600, images['pipe-top'], images['pipe-bottom'])];
+      pipes = [new Pipe(800, images['pipe-top'], images['pipe-bottom'])];
       ground = new Ground(HEIGHT - GROUND_HEIGHT);
       
       if (bgImage && bgImage.complete && bgImage.naturalWidth > 0) {
@@ -240,7 +230,6 @@ export default function FlappyGame() {
       drawBackground();
       pipes.forEach(p => p.draw(ctx));
       bird.draw(ctx);
-      ground.draw(ctx);
 
       ctx.fillStyle = 'white';
       ctx.strokeStyle = 'black';
@@ -261,7 +250,6 @@ export default function FlappyGame() {
       if (!started || over) return;
 
       bird.update();
-      ground.update();
       let addPipe = false;
 
       for (const p of pipes) {
@@ -301,7 +289,7 @@ export default function FlappyGame() {
       setOver(false);
       setStarted(false);
       bird = new Bird(230, 350, images['mascote']);
-      pipes = [new Pipe(600, images['pipe-top'], images['pipe-bottom'])];
+      pipes = [new Pipe(800, images['pipe-top'], images['pipe-bottom'])];
       loop();
     }
 
