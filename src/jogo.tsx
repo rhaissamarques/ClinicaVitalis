@@ -351,14 +351,15 @@ export default function FlappyGame() {
       if (!over) rafId = requestAnimationFrame(loop);
     }
 
-    function handleAction() {
+    function handleAction(e: Event) {
+      e.preventDefault();
       if (loading) return;
       if (over) { restartGame(); return;}
       if (!started) setStarted(true);
       bird.flap();
     }
 
-    canvas.addEventListener('touchstart', handleAction);
+    canvas.addEventListener('touchstart', handleAction, { passive: false });
     canvas.addEventListener('click', handleAction);
 
     const handleResize = () => {
@@ -383,7 +384,7 @@ export default function FlappyGame() {
 
         <canvas 
           ref={canvasRef}
-          className="border-4 border-yellow-500 rounded-lg shadow-2xl w-full h-auto"
+          className="border-4 border-yellow-500 rounded-lg shadow-2xl w-full h-auto touch-none"
         />
 
         {!started && !over && !loading && <InstructionCard />}
