@@ -2,6 +2,16 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap');
 
 @media (max-width: 480px) {
+  .body {
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+  }
+
+  .bgLanding img {
+    width: 100vw;
+  }
+
   .header {
     margin: 0;
     padding: 0;

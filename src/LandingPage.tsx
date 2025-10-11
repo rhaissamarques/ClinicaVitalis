@@ -7,7 +7,7 @@ import LogoLandingPage from './assets/LogoLandingPage.png'
 
 function LandingPage() {
   return (
-    <>
+    <div className="body">
       <div className="bgLanding">
         <img src={bgLanding} alt="Background Landing" />
       </div>
@@ -31,7 +31,7 @@ function LandingPage() {
       <footer className='footer'>
         <p>Seu tempo importa. Seu bem-estar também.</p>
       </footer>
-    </>
+    </div>
   );
 }
 
