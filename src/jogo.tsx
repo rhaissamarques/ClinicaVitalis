@@ -8,15 +8,15 @@ import LoadingCard from './Components/LoadingCard';
 import InstructionCard from './Components/InstructionCard';
 import GameOverCard from './Components/GameOverCard';
 
-const WIDTH = 360;
-const HEIGHT = 600;
-const GRAVITY = 0.5;
-const JUMP_VELOCITY = -8;
-const MAX_FALL = 16;
-let PIPE_SPEED = 3;
-const PIPE_WIDTH = 80;
-const PIPE_GAP = 200;
-const GROUND_HEIGHT = 70;
+const BASE_WIDTH = 360;
+const BASE_HEIGHT = 600;
+// const GRAVITY = 0.5;
+// const JUMP_VELOCITY = -8;
+// const MAX_FALL = 16;
+// let PIPE_SPEED = 3;
+// const PIPE_WIDTH = 80;
+// const PIPE_GAP = 200;
+// const GROUND_HEIGHT = 70;
 
 export default function FlappyGame() {
   const canvasRef = useRef<HTMLCanvasElement>(null);
@@ -32,6 +32,22 @@ export default function FlappyGame() {
     const ctx = canvas.getContext('2d');
     if (!ctx) return;
 
+    const screenWidth = window.innerWidth;
+    const scale = screenWidth / BASE_WIDTH;
+    const WIDTH = BASE_WIDTH * scale;
+    const HEIGHT = BASE_HEIGHT * scale;
+
+    canvas.width = WIDTH;
+    canvas.height = HEIGHT;
+
+    const GRAVITY = 0.5 * scale;
+    const JUMP_VELOCITY = -8 * scale;
+    const MAX_FALL = 16 * scale;
+    let PIPE_SPEED = 3 * scale;
+    const PIPE_WIDTH = 80 * scale;
+    const PIPE_GAP = 200 * scale;
+    const GROUND_HEIGHT = 70 * scale;
+
     class Bird {
       x: number;
       y: number;
@@ -44,8 +60,8 @@ export default function FlappyGame() {
         this.x = x;
         this.y = y;
         this.vy = 0;
-        this.width = 48;
-        this.height = 50;
+        this.width = 48 * scale;
+        this.height = 50 * scale;
         this.angle = 0;
         this.image = image;
       }
@@ -76,7 +92,7 @@ export default function FlappyGame() {
           ctx.fill();
           ctx.fillStyle = '#000';
           ctx.beginPath();
-          ctx.arc(5, -5, 3, 0, Math.PI * 2);
+          ctx.arc(5 * scale, -5 * scale, 3 * scale, 0, Math.PI * 2);
           ctx.fill();
           ctx.restore();
         }
@@ -107,9 +123,9 @@ export default function FlappyGame() {
         this.resetHeight();
       }
       resetHeight() {
-        const min = 20, max = 320;
+        const min = 20 * scale, max = 320 * scale;
         this.height = Math.floor(Math.random() * (max - min + 1)) + min;
-        this.topY = this.height - 320;
+        this.topY = this.height - 320 * scale;
         this.bottomY = this.height + this.gap;
       }
       update() { this.x -= PIPE_SPEED; }
@@ -123,12 +139,12 @@ export default function FlappyGame() {
         } else {
           // Fallback: desenha retângulos verdes
           ctx.fillStyle = '#228B22';
-          ctx.fillRect(this.x, this.topY, this.width, 390);
-          ctx.fillRect(this.x, this.bottomY, this.width, 390);
+          ctx.fillRect(this.x, this.topY, this.width, 390 * scale);
+          ctx.fillRect(this.x, this.bottomY, this.width, 390 * scale);
           ctx.strokeStyle = '#006400';
-          ctx.lineWidth = 3;
-          ctx.strokeRect(this.x, this.topY, this.width, 390);
-          ctx.strokeRect(this.x, this.bottomY, this.width, 390);
+          ctx.lineWidth = 3 * scale;
+          ctx.strokeRect(this.x, this.topY, this.width, 390 * scale);
+          ctx.strokeRect(this.x, this.bottomY, this.width, 390 * scale);
         }
       }
       hits(bird: Bird) {
@@ -184,11 +200,9 @@ export default function FlappyGame() {
             const img = new Image();
             img.onload = () => {
               images[key] = img;
-              console.log(`✓ Imagem carregada: ${key}`);
               resolve();
             };
             img.onerror = () => {
-              console.warn(`⚠️ Falha ao carregar imagem: ${key}. Usando fallback.`);
               images[key] = null;
               resolve();
             };
@@ -238,12 +252,12 @@ export default function FlappyGame() {
 
       ctx.fillStyle = 'white';
       ctx.strokeStyle = 'black';
-      ctx.lineWidth = 3;
+      ctx.lineWidth = 3 * scale;
       ctx.font = 'bold 40px Arial';
       const text = `Pontuação: ${scoreRef.current}`;
       const w = ctx.measureText(text).width;
-      ctx.strokeText(text, WIDTH - 10 - w, 50);
-      ctx.fillText(text, WIDTH - 10 - w, 50);
+      ctx.strokeText(text, WIDTH - 10 * scale - w, 50 * scale);
+      ctx.fillText(text, WIDTH - 10 * scale - w, 50 * scale);
     }
 
     function update() {
@@ -255,7 +269,7 @@ export default function FlappyGame() {
       if (!started || over) return;
 
       bird.update();
-      let addPipe = false;
+      // let addPipe = false;
 
       for (const p of pipes) {
         if (!p.passed && bird.x > p.x + p.width) {
@@ -263,8 +277,8 @@ export default function FlappyGame() {
           scoreRef.current += 1;
           setScore(scoreRef.current);
 
-          if (scoreRef.current % 5 === 0) PIPE_SPEED += 0.5;
-          pipes.push(new Pipe(WIDTH + 100, images['pipe-top'], images['pipe-bottom']));
+          if (scoreRef.current % 5 === 0) PIPE_SPEED += 0.5 * scale;
+          pipes.push(new Pipe(WIDTH + 100 * scale, images['pipe-top'], images['pipe-bottom']));
         }
         if (p.hits(bird)) {
           endGame();
@@ -273,13 +287,13 @@ export default function FlappyGame() {
         p.update();
       }
 
-      if (addPipe) {
-        scoreRef.current += 1;
-        setScore(scoreRef.current);
-        pipes.push(new Pipe(WIDTH + 100, images['pipe-top'], images['pipe-bottom']));
-      }
+      // if (addPipe) {
+      //   scoreRef.current += 1;
+      //   setScore(scoreRef.current);
+      //   pipes.push(new Pipe(WIDTH + 100, images['pipe-top'], images['pipe-bottom']));
+      // }
 
-      pipes = pipes.filter(p => p.x + p.width > -50);
+      pipes = pipes.filter(p => p.x + p.width > -50 * scale);
 
       if (bird.y + bird.height > ground.y || bird.y < 0) endGame();
     }
@@ -290,13 +304,13 @@ export default function FlappyGame() {
     }
 
     function restartGame() {
-      PIPE_SPEED = 3;
+      PIPE_SPEED = 3 * scale;
       scoreRef.current = 0;
       setScore(0);
       setOver(false);
       setStarted(false);
-      bird = new Bird(230, 350, images['mascote']);
-      pipes = [new Pipe(800, images['pipe-top'], images['pipe-bottom'])];
+      bird = new Bird(230 * scale, 350 * scale, images['mascote']);
+      pipes = [new Pipe(800 * scale, images['pipe-top'], images['pipe-bottom'])];
       loop();
     }
 
@@ -306,40 +320,54 @@ export default function FlappyGame() {
       if (!over) rafId = requestAnimationFrame(loop);
     }
 
-    function handleAction(e: KeyboardEvent | MouseEvent) {
+    // function handleAction(e: KeyboardEvent | MouseEvent) {
+    //   if (loading) return;
+    //   if (e instanceof KeyboardEvent && e.code !== 'Space') return;
+    //   e.preventDefault();
+    //   if (over) { 
+    //     restartGame(); 
+    //     return; 
+    //   }
+    //   if (!started) {
+    //     setStarted(true);
+    //   }
+    //   if (bird) bird.flap();
+    // }
+
+    function handleAction() {
       if (loading) return;
-      if (e instanceof KeyboardEvent && e.code !== 'Space') return;
-      e.preventDefault();
-      if (over) { 
-        restartGame(); 
-        return; 
-      }
-      if (!started) {
-        setStarted(true);
-      }
-      if (bird) bird.flap();
+      if (over) { restartGame(); return;}
+      if (!started) setStarted(true);
+      bird.flap();
     }
 
-    document.addEventListener('keydown', handleAction);
+    // document.addEventListener('keydown', handleAction);
+    canvas.addEventListener('touchstart', handleAction);
     canvas.addEventListener('click', handleAction);
 
     return () => {
       cancelAnimationFrame(rafId);
-      document.removeEventListener('keydown', handleAction);
+      // document.removeEventListener('keydown', handleAction);
+      canvas.removeEventListener('touchstart', handleAction);
       canvas.removeEventListener('click', handleAction);
     };
   }, [started, over, loading]);
 
   return (
     <div className="flex flex-col items-center justify-center min-h-screen bg-gray-900 p-4">
-      <div className="relative">
+      <div className="relative w-full max-w-[400px]">
         {loading && <LoadingCard />}
 
-        <canvas
+        {/* <canvas
           ref={canvasRef}
           width={WIDTH}
           height={HEIGHT}
           className="border-4 border-yellow-500 rounded-lg shadow-2xl"
+        /> */}
+
+        <canvas 
+          ref={canvasRef}
+          className="border-4 border-yellow-500 rounded-lg shadow-2x1 w-full h-auto"
         />
 
         {!started && !over && !loading && <InstructionCard />}
@@ -352,7 +380,7 @@ export default function FlappyGame() {
               setStarted(false);
               setScore(0);
               scoreRef.current = 0;
-              PIPE_SPEED = 3;
+              // PIPE_SPEED = 3;
             }}
           />
         )}
