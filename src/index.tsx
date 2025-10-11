@@ -11,7 +11,7 @@ const root = ReactDOM.createRoot(
 root.render(
   <React.StrictMode>
     <LandingPage />
-    <FlappyGame />
+    {/* <FlappyGame /> */}
   </React.StrictMode>
 );
 
