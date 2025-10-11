@@ -1,0 +1,50 @@
+.input-wrapper {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 1rem;
+}
+
+.input-label {
+  margin-bottom: 0.5rem;
+  font-weight: bold;
+}
+
+.input {
+  padding: 0.5rem 1rem;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 1rem;
+  outline: none;
+  transition: border-color 0.2s;
+}
+
+.input:focus {
+  border-color: #38a169; /* verde de destaque */
+}
+
+/* Variantes */
+.input-default {
+    border: 2px solid #38a169;
+}
+
+.input-outlined {
+  border: 2px solid #38a169;
+}
+.input-filled {
+  background-color: #f0fff4;
+  border: 1px solid #38a169;
+}
+
+/* Tamanhos */
+.input-small {
+  padding: 0.25rem 0.5rem;
+  font-size: 0.875rem;
+}
+.input-medium {
+  padding: 0.5rem 1rem;
+  font-size: 1rem;
+}
+.input-large {
+  padding: 0.75rem 1.5rem;
+  font-size: 1.125rem;
+}

@@ -1,0 +1,48 @@
+.gameover-card {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.gameover-card-content {
+  background-color: rgba(0, 0, 0, 0.9);
+  color: white;
+  padding: 2rem;
+  border-radius: 0.75rem;
+  text-align: center;
+}
+
+.gameover-card-content h2 {
+  font-size: 2rem;
+  font-weight: bold;
+  margin-bottom: 1rem;
+  color: #f87171;
+}
+
+.gameover-card-content p {
+  font-size: 1.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.gameover-card-content span {
+  color: #facc15;
+  font-weight: bold;
+}
+
+.gameover-card-content button {
+  background-color: #16a34a;
+  color: white;
+  font-weight: bold;
+  padding: 0.75rem 2rem;
+  border: none;
+  border-radius: 0.5rem;
+  font-size: 1.125rem;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.gameover-card-content button:hover {
+  background-color: #15803d;
+}
