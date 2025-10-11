@@ -1,19 +1,19 @@
 {
   "files": {
-    "main.css": "/rhaissamarques/ClinicaVitalis/static/css/main.dd4c1847.css",
-    "main.js": "/rhaissamarques/ClinicaVitalis/static/js/main.5b1f9b7e.js",
-    "static/js/453.1135014f.chunk.js": "/rhaissamarques/ClinicaVitalis/static/js/453.1135014f.chunk.js",
-    "static/media/background.png": "/rhaissamarques/ClinicaVitalis/static/media/background.48d17d199dd127dc93d0.png",
-    "static/media/mascote.png": "/rhaissamarques/ClinicaVitalis/static/media/mascote.62183035d2e3e030a925.png",
-    "static/media/pipe-bottom.png": "/rhaissamarques/ClinicaVitalis/static/media/pipe-bottom.247dee9c0bb1ce1c9e34.png",
-    "static/media/pipe-top.png": "/rhaissamarques/ClinicaVitalis/static/media/pipe-top.5b80631061cc10ae9471.png",
-    "index.html": "/rhaissamarques/ClinicaVitalis/index.html",
-    "main.dd4c1847.css.map": "/rhaissamarques/ClinicaVitalis/static/css/main.dd4c1847.css.map",
-    "main.5b1f9b7e.js.map": "/rhaissamarques/ClinicaVitalis/static/js/main.5b1f9b7e.js.map",
-    "453.1135014f.chunk.js.map": "/rhaissamarques/ClinicaVitalis/static/js/453.1135014f.chunk.js.map"
+    "main.css": "/ClinicaVitalis/static/css/main.dd4c1847.css",
+    "main.js": "/ClinicaVitalis/static/js/main.baedfb31.js",
+    "static/js/453.1135014f.chunk.js": "/ClinicaVitalis/static/js/453.1135014f.chunk.js",
+    "static/media/background.png": "/ClinicaVitalis/static/media/background.48d17d199dd127dc93d0.png",
+    "static/media/mascote.png": "/ClinicaVitalis/static/media/mascote.62183035d2e3e030a925.png",
+    "static/media/pipe-bottom.png": "/ClinicaVitalis/static/media/pipe-bottom.247dee9c0bb1ce1c9e34.png",
+    "static/media/pipe-top.png": "/ClinicaVitalis/static/media/pipe-top.5b80631061cc10ae9471.png",
+    "index.html": "/ClinicaVitalis/index.html",
+    "main.dd4c1847.css.map": "/ClinicaVitalis/static/css/main.dd4c1847.css.map",
+    "main.baedfb31.js.map": "/ClinicaVitalis/static/js/main.baedfb31.js.map",
+    "453.1135014f.chunk.js.map": "/ClinicaVitalis/static/js/453.1135014f.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.dd4c1847.css",
-    "static/js/main.5b1f9b7e.js"
+    "static/js/main.baedfb31.js"
   ]
 }
