@@ -3,6 +3,10 @@ import backgroundImg from './assets/background.png';
 import mascoteImg from './assets/mascote.png';
 import pipeTopImg from './assets/pipe-top.png';
 import pipeBottomImg from './assets/pipe-bottom.png';
+import GameOverlay from './Components/GameOverlay';
+import LoadingCard from './Components/LoadingCard';
+import InstructionCard from './Components/InstructionCard';
+import GameOverCard from './Components/GameOverCard';
 
 const WIDTH = 360;
 const HEIGHT = 600;
@@ -20,6 +24,7 @@ export default function FlappyGame() {
   const [over, setOver] = useState(false);
   const [started, setStarted] = useState(false);
   const [loading, setLoading] = useState(true);
+  const scoreRef = useRef(0);
 
   useEffect(() => {
     const canvas = canvasRef.current;
@@ -193,7 +198,7 @@ export default function FlappyGame() {
     ).then(() => {
       bgImage = images['background'];
       bird = new Bird(100, 350, images['mascote']);
-      pipes = [new Pipe(800, images['pipe-top'], images['pipe-bottom'])];
+      pipes = [new Pipe(400, images['pipe-top'], images['pipe-bottom'])];
       ground = new Ground(HEIGHT - GROUND_HEIGHT);
       
       if (bgImage && bgImage.complete && bgImage.naturalWidth > 0) {
@@ -235,7 +240,7 @@ export default function FlappyGame() {
       ctx.strokeStyle = 'black';
       ctx.lineWidth = 3;
       ctx.font = 'bold 40px Arial';
-      const text = `Pontuação: ${score}`;
+      const text = `Pontuação: ${scoreRef.current}`;
       const w = ctx.measureText(text).width;
       ctx.strokeText(text, WIDTH - 10 - w, 50);
       ctx.fillText(text, WIDTH - 10 - w, 50);
@@ -255,7 +260,11 @@ export default function FlappyGame() {
       for (const p of pipes) {
         if (!p.passed && bird.x > p.x + p.width) {
           p.passed = true;
-          addPipe = true;
+          scoreRef.current += 1;
+          setScore(scoreRef.current);
+
+          if (scoreRef.current % 5 === 0) PIPE_SPEED += 0.5;
+          pipes.push(new Pipe(WIDTH + 100, images['pipe-top'], images['pipe-bottom']));
         }
         if (p.hits(bird)) {
           endGame();
@@ -265,11 +274,8 @@ export default function FlappyGame() {
       }
 
       if (addPipe) {
-        setScore(prev => {
-          const newScore = prev + 1;
-          if (newScore % 10 === 0) PIPE_SPEED += 0.5;
-          return newScore;
-        });
+        scoreRef.current += 1;
+        setScore(scoreRef.current);
         pipes.push(new Pipe(WIDTH + 100, images['pipe-top'], images['pipe-bottom']));
       }
 
@@ -285,6 +291,7 @@ export default function FlappyGame() {
 
     function restartGame() {
       PIPE_SPEED = 3;
+      scoreRef.current = 0;
       setScore(0);
       setOver(false);
       setStarted(false);
@@ -326,11 +333,7 @@ export default function FlappyGame() {
   return (
     <div className="flex flex-col items-center justify-center min-h-screen bg-gray-900 p-4">
       <div className="relative">
-        {loading && (
-          <div className="absolute inset-0 flex items-center justify-center bg-black bg-opacity-70 text-white rounded-lg z-10">
-            <div className="text-2xl font-bold">Carregando...</div>
-          </div>
-        )}
+        {loading && <LoadingCard />}
 
         <canvas
           ref={canvasRef}
@@ -339,39 +342,20 @@ export default function FlappyGame() {
           className="border-4 border-yellow-500 rounded-lg shadow-2xl"
         />
 
-        {!started && !over && !loading && (
-          <div className="absolute inset-0 flex items-center justify-center">
-            <div className="bg-black bg-opacity-80 text-white p-6 rounded-lg text-center">
-              <h3 className="text-2xl font-bold mb-3">Como Jogar</h3>
-              <p className="text-lg mb-2">Pressione ESPAÇO ou clique para pular</p>
-              <p className="text-sm text-gray-300">Evite os obstáculos!</p>
-            </div>
-          </div>
-        )}
+        {!started && !over && !loading && <InstructionCard />}
 
         {over && (
-          <div className="absolute inset-0 flex items-center justify-center">
-            <div className="bg-black bg-opacity-90 text-white p-8 rounded-lg text-center">
-              <h2 className="text-4xl font-bold mb-4 text-red-400">Game Over!</h2>
-              <p className="text-2xl mb-6">Sua pontuação: <span className="text-yellow-400 font-bold">{score}</span></p>
-              <button
-                onClick={() => {
-                  setOver(false);
-                  setStarted(false);
-                  setScore(0);
-                  PIPE_SPEED = 3;
-                }}
-                className="bg-green-600 hover:bg-green-700 text-white font-bold py-3 px-8 rounded-lg text-xl transition-colors"
-              >
-                Jogar Novamente
-              </button>
-            </div>
-          </div>
+          <GameOverCard
+            score={score}
+            onRestart={() => {
+              setOver(false);
+              setStarted(false);
+              setScore(0);
+              scoreRef.current = 0;
+              PIPE_SPEED = 3;
+            }}
+          />
         )}
-      </div>
-
-      <div className="mt-4 text-white text-center">
-        <p className="text-sm">Use ESPAÇO ou clique para jogar</p>
       </div>
     </div>
   );
