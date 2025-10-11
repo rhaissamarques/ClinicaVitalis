@@ -64,5 +64,6 @@
     font-weight: 500;
     color: var(--color-white);
     padding: 14px;
+    text-align: center;
   }
 }
