@@ -387,7 +387,7 @@ export default function FlappyGame() {
           className="border-4 border-yellow-500 rounded-lg shadow-2xl w-full h-auto touch-none"
         />
 
-        {!started && !over && !loading && <InstructionCard />}
+        {!started && !over && !loading }
 
         {over && (
           <GameOverCard
