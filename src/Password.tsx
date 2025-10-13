@@ -1,5 +1,5 @@
 import ReturnArrow from './assets/ReturnArrow.png';
-import logoPassword from './assets/logoPassword.png'
+import logoPassword from './assets/logoPassword.svg';
 import './PasswordStyles.css';
 import { useNavigate } from 'react-router-dom';
 import Button from './Components/Button';
