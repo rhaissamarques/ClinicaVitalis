@@ -41,13 +41,13 @@ export default function FlappyGame() {
     canvas.width = WIDTH;
     canvas.height = HEIGHT;
 
-    let GRAVITY = 0.5 * scale;
+    let GRAVITY = 0.2 * scale;
     let JUMP_VELOCITY = -8 * scale;
     let MAX_FALL = 16 * scale;
     let PIPE_SPEED = 3 * scale;
     let PIPE_WIDTH = 80 * scale;
     let PIPE_GAP = 200 * scale;
-    let GROUND_HEIGHT = 70 * scale;
+    let GROUND_HEIGHT = 0 * scale;
 
     function updateScale() {
       if (!canvas || !container) return;
@@ -57,13 +57,13 @@ export default function FlappyGame() {
       canvas.width = WIDTH;
       canvas.height = HEIGHT;
       
-      GRAVITY = 0.5 * scale;
+      GRAVITY = 0.2 * scale;
       JUMP_VELOCITY = -8 * scale;
       MAX_FALL = 16 * scale;
       PIPE_SPEED = 3 * scale;
       PIPE_WIDTH = 80 * scale;
       PIPE_GAP = 200 * scale;
-      GROUND_HEIGHT = 70 * scale;
+      GROUND_HEIGHT = 0 * scale;
 
       if (bird) {
         bird.width = 48 * scale;
