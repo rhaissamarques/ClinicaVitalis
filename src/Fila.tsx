@@ -3,17 +3,14 @@ import logoPassword from './assets/logoPassword.svg';
 import './PasswordStyles.css';
 import { useNavigate } from 'react-router-dom';
 import Button from './Components/Button';
-import Input from './Components/Input';
-import { useState } from 'react';
 import Footer from './Components/Footer';
+import { toast } from 'sonner';
 
-
-function Password() {
+function Fila() {
   const navigate = useNavigate();
-  const [senha, setSenha] = useState('');
 
   return (
-    <div className="password">
+    <div className="fila">
       <div className="contentHeader">
         <div className="header">
           <button className='returnButton' onClick={() => navigate('/clinicaVitalis')}>
@@ -26,22 +23,28 @@ function Password() {
       </div>
       <div className="content">
         <h1 className='contentH1'>
-          Acompanhe seu atendimento
+          Status da fila
         </h1>
-        <p className='contentP'>Digite o número da sua senha e acompanhe o tempo de espera em tempo real.</p>
+        <p className='contentP'>Você é o 4° da fila</p>
+        <p className="contentp2">Tempo estimado: 30 minutos</p>
 
         <div className="inputAndButton">
-          <Input
-            value={senha}
-            onChange={(e) => setSenha(e.target.value)}
-            placeholder='Digite sua senha (ex: A23)'
-          />
-          <Button variant='primary' onClick={() => navigate('/fila')}>
-            Confirmar
+          <Button
+            variant='primary'
+            onClick={() => toast.success("Notificações ativadas!")}
+          >
+            Ativar notificações
+          </Button>
+
+          <Button
+            variant='secondary'
+            onClick={() => navigate('/jogo')}
+          >
+            Jogar enquanto espero
           </Button>
         </div>
       </div>
-      <Footer 
+      <Footer
         text='Transparência no seu atendimento'
       />
     </div>
@@ -49,4 +52,4 @@ function Password() {
   )
 }
 
-export default Password;
+export default Fila;
