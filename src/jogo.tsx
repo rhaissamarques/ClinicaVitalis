@@ -44,7 +44,7 @@ export default function FlappyGame() {
     let GRAVITY = 0.15 * scale;
     let JUMP_VELOCITY = -5 * scale;
     let MAX_FALL = 8 * scale;
-    let PIPE_SPEED = 3 * scale;
+    let PIPE_SPEED = 1 * scale;
     let PIPE_WIDTH = 80 * scale;
     let PIPE_GAP = 200 * scale;
     let GROUND_HEIGHT = 50 * scale;
@@ -60,7 +60,7 @@ export default function FlappyGame() {
       GRAVITY = 0.15 * scale;
       JUMP_VELOCITY = -5 * scale;
       MAX_FALL = 8 * scale;
-      PIPE_SPEED = 3 * scale;
+      PIPE_SPEED = 1 * scale;
       PIPE_WIDTH = 80 * scale;
       PIPE_GAP = 200 * scale;
       GROUND_HEIGHT = 50 * scale;
