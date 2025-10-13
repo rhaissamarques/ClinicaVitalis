@@ -4,6 +4,7 @@ import Input from './Components/Input';
 import bgLanding from './assets/bgLandingPage.png';
 import LogoLandingPage from './assets/LogoLandingPage.png';
 import { useNavigate } from 'react-router-dom';
+import Footer from './Components/Footer';
 
 function LandingPage() {
   const navigate = useNavigate();
@@ -30,9 +31,9 @@ function LandingPage() {
           Jogar enquanto espero
         </Button>
       </div>
-      <footer className='footer'>
-        <p>Seu tempo importa. Seu bem-estar também.</p>
-      </footer>
+      <Footer 
+        text='Seu tempo importa. Seu bem-estar também.'
+      />
     </div>
   );
 }

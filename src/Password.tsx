@@ -5,6 +5,7 @@ import { useNavigate } from 'react-router-dom';
 import Button from './Components/Button';
 import Input from './Components/Input';
 import { useState } from 'react';
+import Footer from './Components/Footer';
 
 
 function Password() {
@@ -40,9 +41,9 @@ function Password() {
           </Button>
         </div>
       </div>
-      <footer className='footer'>
-        <p>Transparência no seu atendimento.</p>
-      </footer>
+      <Footer 
+        text='Transparência no seu atendimento'
+      />
     </div>
 
   )
