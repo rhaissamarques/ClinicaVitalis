@@ -1,11 +1,13 @@
 import './LandingPage.css';
 import Button from './Components/Button';
 import Input from './Components/Input';
-import React from "react";
 import bgLanding from './assets/bgLandingPage.png';
-import LogoLandingPage from './assets/LogoLandingPage.png'
+import LogoLandingPage from './assets/LogoLandingPage.png';
+import { useNavigate } from 'react-router-dom';
 
 function LandingPage() {
+  const navigate = useNavigate();
+
   return (
     <div className="body">
       <div className="bgLanding">
@@ -21,7 +23,7 @@ function LandingPage() {
         </p>
       </div>
       <div className='buttons'>
-        <Button variant='primary' onClick={() => alert('Clicou!')}>
+        <Button variant='primary' onClick={() => navigate('/password')}>
           Ver a minha posição na fila
         </Button>
         <Button variant='primary' onClick={() => alert('Clicou!')}>

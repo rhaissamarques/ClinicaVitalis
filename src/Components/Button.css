@@ -7,18 +7,17 @@
 }
 
 .btn-primary {
-border-radius: 10px;
-border: 0.5px solid #FFF;
-background: var(--color-green-300);
-color: var(--color-white);
-display: flex;
-width: 270px;
-justify-content: center;
-align-items: center;
-gap: 10px;
-height: 45px;
-width: 270px;
-font-family: 'Montserrat', sans-serif;
+  border-radius: 10px;
+  border: 0.5px solid #FFF;
+  background: var(--color-green-300);
+  color: var(--color-white);
+  display: flex;
+  width: 270px;
+  height: 45px;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  font-family: 'Montserrat', sans-serif;
 }
 
 .btn-primary:hover {

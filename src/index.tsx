@@ -3,6 +3,7 @@ import ReactDOM from 'react-dom/client';
 import './index.css';
 import LandingPage from './LandingPage';
 import reportWebVitals from './reportWebVitals';
+import App from './App';
 import FlappyGame from './jogo'
 
 const root = ReactDOM.createRoot(
@@ -10,7 +11,8 @@ const root = ReactDOM.createRoot(
 );
 root.render(
   <React.StrictMode>
-    <LandingPage />
+    {/* <LandingPage /> */}
+    <App />
     {/* <FlappyGame /> */}
   </React.StrictMode>
 );
