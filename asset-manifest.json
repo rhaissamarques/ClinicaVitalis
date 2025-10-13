@@ -1,17 +1,21 @@
 {
   "files": {
-    "main.css": "/ClinicaVitalis/static/css/main.9326441a.css",
-    "main.js": "/ClinicaVitalis/static/js/main.edf1eef3.js",
+    "main.css": "/ClinicaVitalis/static/css/main.41dfb3e5.css",
+    "main.js": "/ClinicaVitalis/static/js/main.a27895c6.js",
     "static/js/453.1135014f.chunk.js": "/ClinicaVitalis/static/js/453.1135014f.chunk.js",
+    "static/media/background.png": "/ClinicaVitalis/static/media/background.48d17d199dd127dc93d0.png",
+    "static/media/mascote.png": "/ClinicaVitalis/static/media/mascote.62183035d2e3e030a925.png",
+    "static/media/pipe-bottom.png": "/ClinicaVitalis/static/media/pipe-bottom.247dee9c0bb1ce1c9e34.png",
+    "static/media/pipe-top.png": "/ClinicaVitalis/static/media/pipe-top.5b80631061cc10ae9471.png",
     "static/media/bgLandingPage.png": "/ClinicaVitalis/static/media/bgLandingPage.d558ca6fc3cf1addce26.png",
     "static/media/logoPassword.svg": "/ClinicaVitalis/static/media/logoPassword.2f42dc9dae47c81be96d73657a9cfcad.svg",
     "index.html": "/ClinicaVitalis/index.html",
-    "main.9326441a.css.map": "/ClinicaVitalis/static/css/main.9326441a.css.map",
-    "main.edf1eef3.js.map": "/ClinicaVitalis/static/js/main.edf1eef3.js.map",
+    "main.41dfb3e5.css.map": "/ClinicaVitalis/static/css/main.41dfb3e5.css.map",
+    "main.a27895c6.js.map": "/ClinicaVitalis/static/js/main.a27895c6.js.map",
     "453.1135014f.chunk.js.map": "/ClinicaVitalis/static/js/453.1135014f.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.9326441a.css",
-    "static/js/main.edf1eef3.js"
+    "static/css/main.41dfb3e5.css",
+    "static/js/main.a27895c6.js"
   ]
 }
