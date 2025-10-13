@@ -27,7 +27,7 @@ function LandingPage() {
         <Button variant='primary' onClick={() => navigate('/password')}>
           Ver a minha posição na fila
         </Button>
-        <Button variant='primary' onClick={() => alert('Clicou!')}>
+        <Button variant='primary' onClick={() => navigate('/jogo')}>
           Jogar enquanto espero
         </Button>
       </div>
