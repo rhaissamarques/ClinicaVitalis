@@ -1,0 +1,46 @@
+.contentHeaderFila {
+  width: 100vw;
+  margin: 0;
+  padding: 0;
+}
+
+.headerFila {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 24px;
+  margin: 0;
+  height: auto;
+}
+
+.returnButtonFila {
+  background-color: transparent;
+  border: none;
+  display: flex;
+  padding: 0;
+  margin: 0;
+}
+
+.logoImageFila {
+  display: flex;
+  margin: 0;
+  padding: 0;
+}
+
+.logoImageFila img {
+  width: 29px;
+  height: 29px;
+}
+
+.contentH1Fila {
+  font-family: 'Anek Bangla', sans-serif;
+  font-size: 23px;
+  font-weight: bold;
+  text-align: center;
+}
+
+.contentFila {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}

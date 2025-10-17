@@ -7,6 +7,10 @@ import GameOverlay from './Components/GameOverlay';
 import LoadingCard from './Components/LoadingCard';
 import InstructionCard from './Components/InstructionCard';
 import GameOverCard from './Components/GameOverCard';
+import ReturnArrow from './assets/ReturnArrow.png';
+import logoPassword from './assets/logoPassword.svg';
+import { useNavigate } from 'react-router-dom';
+import './jogoStyles.css'
 
 const BASE_WIDTH = 360;
 const BASE_HEIGHT = 600;
@@ -19,6 +23,8 @@ export default function FlappyGame() {
   const [started, setStarted] = useState(false);
   const [loading, setLoading] = useState(true);
   const scoreRef = useRef(0);
+  const navigate = useNavigate();
+
 
   useEffect(() => {
     const canvas = canvasRef.current;
@@ -379,6 +385,13 @@ export default function FlappyGame() {
 
   return (
     <div className="flex flex-col items-center justify-center min-h-screen bg-gray-900 p-4">
+      <div className="contentHeader">
+        <div className="header" >
+          <button className='returnButton' onClick={() => navigate('/clinicaVitalis')}>
+            <img src={ReturnArrow} alt="Voltar" />
+          </button>
+        </div>
+      </div>
       <div ref={containerRef} className="relative w-full max-w-[400px]">
         {loading && <LoadingCard />}
 

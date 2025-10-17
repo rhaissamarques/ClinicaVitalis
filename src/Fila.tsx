@@ -1,41 +1,40 @@
 import ReturnArrow from './assets/ReturnArrow.png';
-import logoPassword from './assets/logoPassword.svg';
-import './PasswordStyles.css';
 import { useNavigate } from 'react-router-dom';
+import iconePequeno from './assets/iconePequeno.svg';
 import Button from './Components/Button';
-import Footer from './Components/Footer';
 import { toast } from 'sonner';
+import Footer from './Components/Footer';
+import './Fila.css';
 
 function Fila() {
   const navigate = useNavigate();
 
   return (
     <div className="fila">
-      <div className="contentHeader">
-        <div className="header">
-          <button className='returnButton' onClick={() => navigate('/clinicaVitalis')}>
-            <img src={ReturnArrow} alt="Voltar" />
+      <div className="contentHeaderFila">
+        <div className="headerFila">
+          <button className='returnButtonFila'>
+            <img src={ReturnArrow} alt="" onClick={() => navigate('/clinicaVitalis')} />
           </button>
-        </div>
-        <div className="logoImage">
-          <img src={logoPassword} alt="" />
+          <div className="logoImageFila">
+            <img src={iconePequeno} alt="" />
+          </div>
         </div>
       </div>
-      <div className="content">
-        <h1 className='contentH1'>
+      <div className="contentFila">
+        <h1 className='contentH1Fila'>
           Status da fila
         </h1>
-        <p className='contentP'>Você é o 4° da fila</p>
-        <p className="contentp2">Tempo estimado: 30 minutos</p>
+        <p className='contentPFila'>Você é o 4° da fila</p>
+        <p className='contentP2Fila'>Tempo estimado: 30 minutos</p>
 
-        <div className="inputAndButton">
+        <div className="inputAndButtonFila">
           <Button
             variant='primary'
             onClick={() => toast.success("Notificações ativadas!")}
           >
             Ativar notificações
           </Button>
-
           <Button
             variant='secondary'
             onClick={() => navigate('/jogo')}
@@ -44,12 +43,11 @@ function Fila() {
           </Button>
         </div>
       </div>
-      <Footer
+      <Footer 
         text='Transparência no seu atendimento'
       />
     </div>
-
-  )
+  );
 }
 
 export default Fila;
