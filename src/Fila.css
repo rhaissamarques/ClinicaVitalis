@@ -1,30 +1,38 @@
-.contentHeaderFila {
+.fila {
   width: 100vw;
-  margin: 0;
-  padding: 0;
+  height: 800px;
+  background: #FFFFFF;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+}
+
+.contentHeaderFila {
+  display: flex;
+  justify-content: center;
+  padding: 41px 0px 0px;
+  gap: 26px;
 }
 
 .headerFila {
+  width: 360px;
+  height: 40px;
   display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 20px 24px;
-  margin: 0;
-  height: auto;
+  align-items: flex-end;
+  gap: 26px;
+  padding: 12px 0px 0px 24px;
 }
 
 .returnButtonFila {
-  background-color: transparent;
+  background: none;
   border: none;
-  display: flex;
+  cursor: pointer;
   padding: 0;
-  margin: 0;
 }
 
 .logoImageFila {
-  display: flex;
-  margin: 0;
-  padding: 0;
+  margin-left: auto;
+  margin-right: 24px;
 }
 
 .logoImageFila img {
@@ -32,15 +40,78 @@
   height: 29px;
 }
 
-.contentH1Fila {
-  font-family: 'Anek Bangla', sans-serif;
-  font-size: 23px;
-  font-weight: bold;
-  text-align: center;
-}
-
 .contentFila {
   display: flex;
   flex-direction: column;
   align-items: center;
+  gap: 26px;
+  width: 311px;
+  margin: 0 auto;
+  padding-top: 26px;
+}
+
+.contentH1Fila {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 700;
+  font-size: 24px;
+  line-height: 1.5em;
+  letter-spacing: -2.2%;
+  padding: 12px 24px;
+  margin: 0;
+}
+
+.contentPFila {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 1.5em;
+  letter-spacing: -2.2%;
+  margin: 0;
+  text-align: center;
+}
+
+.contentP2Fila {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 1.5em;
+  letter-spacing: -2.2%;
+  margin: 0;
+  text-align: center;
+}
+
+.progressBar {
+  width: 270px;
+  height: 15px;
+  background: #D9D9D9;
+  border-radius: 100px;
+  overflow: hidden;
+  margin: 0 auto;
+  margin-top: 8px;
+}
+
+.progressBarFill {
+  height: 100%;
+  background: #59BA49;
+  transition: width 0.5s ease-in-out;
+}
+
+.inputAndButtonFila {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  width: 270px;
+  margin-top: 33px;
+}
+
+.inputAndButtonFila button {
+  width: 100%;
+  padding: 12px 24px;
+  border-radius: 10px;
+  font-family: 'Montserrat', sans-serif;
+  letter-spacing: -2.2%;
+  box-shadow: -10px -10px 20px rgba(255, 255, 255, 1),
+    10px 10px 20px rgba(170, 170, 204, 0.5),
+    5px 5px 10px rgba(170, 170, 204, 0.25),
+    -5px -5px 10px rgba(255, 255, 255, 0.5);
 }
