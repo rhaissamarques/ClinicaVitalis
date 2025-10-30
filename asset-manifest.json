@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/ClinicaVitalis/static/css/main.1a34e0fc.css",
-    "main.js": "/ClinicaVitalis/static/js/main.e24b149c.js",
+    "main.js": "/ClinicaVitalis/static/js/main.87e9ac40.js",
     "static/js/453.1135014f.chunk.js": "/ClinicaVitalis/static/js/453.1135014f.chunk.js",
     "static/media/background.png": "/ClinicaVitalis/static/media/background.48d17d199dd127dc93d0.png",
     "static/media/mascote.png": "/ClinicaVitalis/static/media/mascote.62183035d2e3e030a925.png",
@@ -12,11 +12,11 @@
     "index.html": "/ClinicaVitalis/index.html",
     "static/media/iconePequeno.svg": "/ClinicaVitalis/static/media/iconePequeno.a3b5249ee035b48bcccc1986f2e20d5c.svg",
     "main.1a34e0fc.css.map": "/ClinicaVitalis/static/css/main.1a34e0fc.css.map",
-    "main.e24b149c.js.map": "/ClinicaVitalis/static/js/main.e24b149c.js.map",
+    "main.87e9ac40.js.map": "/ClinicaVitalis/static/js/main.87e9ac40.js.map",
     "453.1135014f.chunk.js.map": "/ClinicaVitalis/static/js/453.1135014f.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.1a34e0fc.css",
-    "static/js/main.e24b149c.js"
+    "static/js/main.87e9ac40.js"
   ]
 }
