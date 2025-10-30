@@ -3,12 +3,9 @@ import backgroundImg from './assets/background.png';
 import mascoteImg from './assets/mascote.png';
 import pipeTopImg from './assets/pipe-top.png';
 import pipeBottomImg from './assets/pipe-bottom.png';
-import GameOverlay from './Components/GameOverlay';
 import LoadingCard from './Components/LoadingCard';
-import InstructionCard from './Components/InstructionCard';
 import GameOverCard from './Components/GameOverCard';
 import ReturnArrow from './assets/ReturnArrow.png';
-import logoPassword from './assets/logoPassword.svg';
 import { useNavigate } from 'react-router-dom';
 import './jogoStyles.css'
 
@@ -411,6 +408,7 @@ export default function FlappyGame() {
               setScore(0);
               scoreRef.current = 0;
             }}
+            onClose={() => setOver(false)}
           />
         )}
       </div>
